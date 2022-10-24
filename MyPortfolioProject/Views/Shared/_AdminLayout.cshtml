@@ -1,0 +1,82 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!--
+=========================================================
+* Argon Dashboard - v1.2.0
+=========================================================
+* Product Page: https://www.creative-tim.com/product/argon-dashboard
+
+
+* Copyright  Creative Tim (http://www.creative-tim.com)
+* Coded by www.creative-tim.com
+
+
+
+=========================================================
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+<!DOCTYPE html>
+<html>
+    @await Html.PartialAsync("/Views/Admin/PartialHead.cshtml")
+<body>
+  <!-- Sidenav -->
+  <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+    <div class="scrollbar-inner">
+      <!-- Brand -->
+      <div class="sidenav-header  align-items-center">
+        <a class="navbar-brand" href="javascript:void(0)">
+          <img src="~/argon-dashboard-master/assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
+        </a>
+      </div>
+      @await Html.PartialAsync("/Views/Admin/PartialSideBar.cshtml")
+    </div>
+  </nav>
+  <!-- Main content -->
+  <div class="main-content" id="panel">
+    <!-- Topnav -->
+    @await Html.PartialAsync("/Views/Admin/PartialNavbar.cshtml")
+    <!-- Header -->
+    <!-- Header -->
+    <div class="header bg-primary pb-6">
+      <div class="container-fluid">
+        <div class="header-body">
+          <div class="row align-items-center py-4">
+            <div class="col-lg-6 col-7">
+              <h6 class="h2 text-white d-inline-block mb-0">Google maps</h6>
+              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                  <li class="breadcrumb-item"><a href="#">Maps</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Google maps</li>
+                </ol>
+              </nav>
+            </div>
+            <div class="col-lg-6 col-5 text-right">
+              <a href="#" class="btn btn-sm btn-neutral">New</a>
+              <a href="#" class="btn btn-sm btn-neutral">Filters</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+      <div class="row">
+        <div class="col">
+              @RenderBody()
+        </div>
+      </div>
+      <!-- Footer -->
+      @await Html.PartialAsync("/Views/Admin/PartialFooter.cshtml")
+    </div>
+  </div>
+  <!-- Argon Scripts -->
+  <!-- Core -->
+  @await Html.PartialAsync("/Views/Admin/PartialScript.cshtml")
+</body>
+
+</html>
+
