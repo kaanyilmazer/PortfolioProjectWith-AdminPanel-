@@ -1,16 +1,22 @@
 ﻿@model EntityLayer.Concrete.Skill
 @{
-    ViewData["Title"] = "AddSkill";
+    ViewData["Title"] = "UpdateSkill";
     Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
-
-@using(Html.BeginForm("AddSkill","Skill",FormMethod.Post))
+<div class="card-header border-0">
+              <h3 class="mb-0">Yetenek Güncelleme Sayfası</h3>
+            </div>
+@using(Html.BeginForm("UpdateSkill","Skill",FormMethod.Post))
 {
-<div class="col-12 grid-margin stretch-card">
+ <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <p class="card-description"> Yeni Yetenek Ekleme Paneli </p>
-                    <form class="forms-sample" method="post">
+                    <p class="card-description"> Yetenek Güncelleme Paneli </p>
+                    <form class="forms-sample">
+                        <div class="form-group">
+                        <label>ID</label>
+                        @Html.TextBoxFor(x=>x.SkillID,new {@class="form-control"})
+                      </div>
                       <div class="form-group">
                         <label>Başlık</label>
                         @Html.TextBoxFor(x=>x.Title,new{@class="form-control"})
@@ -25,4 +31,6 @@
                   </div>
                 </div>
               </div>
-              }
+
+}
+

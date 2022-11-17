@@ -24,5 +24,9 @@ namespace MyPortfolioProject.Controllers
         {
             return PartialView();
         }
+        public PartialViewResult NavigationPartial()
+        {
+            return PartialView();
+        }
     }
 }
