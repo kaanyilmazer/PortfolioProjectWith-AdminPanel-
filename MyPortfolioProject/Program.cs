@@ -13,6 +13,10 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.MapControllerRoute(
+    name: "MyArea",
+    pattern: "{area:exists}/{controller=Default}/{action=Index}/{id?}");
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 

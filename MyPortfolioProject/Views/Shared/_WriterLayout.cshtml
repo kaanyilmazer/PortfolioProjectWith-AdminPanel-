@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+    @await Html.PartialAsync("/Areas/Writer/Views/Default/_HeadPartial.cshtml")
+<body>
+  <div class="container-scroller">
+    <!-- partial:../../partials/_navbar.html -->
+    @await Html.PartialAsync("/Areas/Writer/Views/Default/_NavbarPartial.cshtml")
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:../../partials/_settings-panel.html -->
+      @await Html.PartialAsync("/Areas/Writer/Views/Default/_PanelSettingsPartial.cshtml")
+      <!-- partial -->
+      <!-- partial:../../partials/_sidebar.html -->
+      @await Html.PartialAsync("/Areas/Writer/Views/Default/_SidebarPartial.cshtml")
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            @RenderBody()
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:../../partials/_footer.html -->
+             @await Html.PartialAsync("/Areas/Writer/Views/Default/_FooterPartial.cshtml")
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  @await Html.PartialAsync("/Areas/Writer/Views/Default/_ScriptsPartial.cshtml")
+</body>
+</html>
