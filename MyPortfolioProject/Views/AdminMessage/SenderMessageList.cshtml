@@ -1,0 +1,47 @@
+﻿@using EntityLayer.Concrete
+@model List<MessageUser>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Giden Mesajlar</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Alıcı</th>
+                            <th>Konu</th>
+                            <th>Tarih</th>
+                            <th>Sil</th>
+                            <th>Mesajı Gör</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+
+
+                            <tr>
+                                <td>@item.MessageUserID</td>
+                                <td>@item.ReceiverName</td>
+                                <td>@item.Subject</td>
+                                <td>@item.Date</td>
+                                <td> <a href="/AdminMessage/DeleteAdminMessage/@item.MessageUserID" class="btn btn-outline-danger">Sil</a></td>
+                                <td> <a href="/AdminMessage/AdminMessageDetails/@item.MessageUserID" class="btn btn-outline-success">Mesajı Gör</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a asp-for="AdminMessageAdd" class="btn btn-outline-danger mr-4">Yeni Mesaj Yaz</a>
+                <a asp-action="ReceiverMessageList" class="btn btn-outline-primary mr-2">Gelen Mesajlar</a>
+            </div>
+        </div>
+    </div>
+</div>
+

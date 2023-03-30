@@ -1,18 +1,18 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace MyPortfolioProject.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ServiceController : Controller
     {
         ServiceManager sm = new ServiceManager(new EfServiceDal());
         public IActionResult Index()
         {
-            ViewBag.v1 = "Hizmet Listesi";
-            ViewBag.v2 = "Hizmetler";
-            ViewBag.v3 = "Hizmet Listesi";
             var values = sm.TGetList();
             return View(values);
         }
@@ -39,9 +39,6 @@ namespace MyPortfolioProject.Controllers
         [HttpGet]
         public IActionResult UpdateService(int id)
         {
-            ViewBag.v1 = "Deneyim Güncelleme";
-            ViewBag.v2 = "Deneyimler";
-            ViewBag.v3 = "Deneyim Güncelleme";
             var values = sm.TGetByID(id);
             return View(values);
         }

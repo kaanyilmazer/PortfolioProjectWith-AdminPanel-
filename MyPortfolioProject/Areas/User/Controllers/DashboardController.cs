@@ -29,13 +29,13 @@ namespace MyPortfolioProject.Areas.User.Controllers
 
             //Statistics
             Context c = new Context();
-            ViewBag.v2 = 0;  
-            ViewBag.v3 = c.Announcements.Count();
-            ViewBag.v4 = 0;
+            ViewBag.v2 = c.MessageUsers.Where(u => u.Receiver == values.Email).Count();
+            ViewBag.v4 = c.Users.Count();
             ViewBag.v5 = c.Skills.Count();
             ViewBag.v6 = c.Announcements.OrderBy(x => x.ID)
                             .Select(y => y.Content)
                             .LastOrDefault();
+            ViewBag.v3 = c.Announcements.Count();
             return View();
         }
     }

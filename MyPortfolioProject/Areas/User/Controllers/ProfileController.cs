@@ -6,6 +6,7 @@ using MyPortfolioProject.Areas.User.Models;
 namespace MyPortfolioProject.Areas.User.Controllers
 {
     [Area("User")]
+    [Route("User/[controller]/[action]")]
     public class ProfileController : Controller
     {
         private readonly UserManager<AspUser> _userManager;
@@ -42,10 +43,11 @@ namespace MyPortfolioProject.Areas.User.Controllers
             }
             user.Name = p.Name;
             user.Surname = p.Surname;
+            user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, p.Password);
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
             {
-                return RedirectToAction("Index", "Default");
+                return RedirectToAction("Index", "Login");
             }
             return View();
         }

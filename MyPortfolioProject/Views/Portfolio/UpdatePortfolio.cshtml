@@ -1,14 +1,17 @@
 ﻿@model EntityLayer.Concrete.Portfolio
 @{
     ViewData["Title"] = "UpdatePortfolio";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
-<div class="card-header border-0">
-              <h3 class="mb-0">Proje Güncelleme Sayfası</h3>
-            </div>
 @using(Html.BeginForm("UpdatePortfolio","Portfolio",FormMethod.Post))
 {
+         <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-description"> Proje Düzenleme Paneli </p>
+                <form class="forms-sample">
+
     @Html.HiddenFor(x=>x.PortfolioID)
     <br />
     @Html.Label("Proje Başlığı")
@@ -39,6 +42,10 @@
     @Html.TextBoxFor(x=>x.Platform,new{@class ="form-control"})
      @Html.ValidationMessageFor(x=>x.Platform)
     <br />
-    <button class="btn btn-info">Kaydet</button> 
+    <button class="btn btn-info">Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
 }
 

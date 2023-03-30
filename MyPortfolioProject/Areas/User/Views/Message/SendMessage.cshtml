@@ -1,0 +1,23 @@
+﻿@model EntityLayer.Concrete.MessageUser
+
+@{
+    ViewData["Title"] = "SendMessage";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+<h1>Yeni Mesaj Gönder</h1>
+
+<form class="form-group" method="post">
+
+    @Html.Label("Alıcının Maili")
+    @Html.TextBoxFor(x=>x.Receiver ,new {@class ="form-control"})
+    <br />
+    @Html.Label("Konu")
+    @Html.TextBoxFor(x=>x.Subject ,new {@class ="form-control"})
+    <br />
+    @Html.Label("Mesaj")
+    @Html.TextAreaFor(x=>x.MessageContent,10,3, new {@class ="form-control"})
+    <br />
+    <button class="btn btn-outline-info">Gönder</button>
+</form>

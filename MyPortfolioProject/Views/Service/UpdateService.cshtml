@@ -1,14 +1,17 @@
 ﻿@model EntityLayer.Concrete.Service
 @{
     ViewData["Title"] = "UpdateService";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
-<div class="card-header border-0">
-              <h3 class="mb-0">Servis Güncelleme Sayfası</h3>
-            </div>
 @using(Html.BeginForm("UpdateService","Service",FormMethod.Post))
 {
+    
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-description"> Servis Düzenleme Paneli </p>
+       <form class="forms-sample">  
     @Html.HiddenFor(x=>x.ServiceID)
       <br />
     @Html.Label("Hizmet Başlığı")
@@ -17,7 +20,11 @@
     <label>Değer</label>
     @Html.TextBoxFor(x=>x.ImageUrl,new{@class ="form-control"})
     <br />
-    <button class="btn btn-outline-success">Kaydet</button> 
+    <button class="btn btn-outline-success">Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
 }
 
 

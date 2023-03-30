@@ -1,19 +1,19 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace MyPortfolioProject.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class FeatureController : Controller
     {
         FeatureManager fm = new FeatureManager(new EfFeatureDal());
         [HttpGet]
         public IActionResult Index()
         {
-            ViewBag.v1 = "Düzenle";
-            ViewBag.v2 = "Öne Çıkanlar";
-            ViewBag.v3 = "Öne Çıkanlar Sayfası";
             var values = fm.TGetByID(1);
             return View(values);
         }

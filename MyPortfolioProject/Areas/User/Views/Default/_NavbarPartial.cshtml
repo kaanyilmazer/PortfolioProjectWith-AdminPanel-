@@ -15,7 +15,7 @@
                   <i class="icon-search"></i>
                 </span>
               </div>
-              <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+              <input type="text" class="form-control" id="navbar-search-input" placeholder="aranacak yer..." aria-label="search" aria-describedby="search">
             </div>
           </li>
         </ul>
@@ -28,21 +28,7 @@
 
              @await Component.InvokeAsync("Notification")
           </li>
-          <li class="nav-item nav-profile dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="../../images/faces/face28.jpg" alt="profile"/>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item">
-                <i class="ti-settings text-primary"></i>
-                Settings
-              </a>
-              <a class="dropdown-item">
-                <i class="ti-power-off text-primary"></i>
-                Logout
-              </a>
-            </div>
-          </li>
+           @await Component.InvokeAsync("Navbar")
           <li class="nav-item nav-settings d-none d-lg-flex">
             <a class="nav-link" href="#">
               <i class="icon-ellipsis"></i>

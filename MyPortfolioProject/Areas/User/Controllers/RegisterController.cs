@@ -12,25 +12,26 @@ namespace MyPortfolioProject.Areas.User.Controllers
     public class RegisterController : Controller
     {
         private readonly UserManager<AspUser> _userManager;
-
+        //private readonly RoleManager<UserRole> _roleManager;
         public RegisterController(UserManager<AspUser> userManager)
         {
             _userManager = userManager;
+            //_roleManager = roleManager;
         }
 
-      
+
         [HttpGet]
         public IActionResult Index()
         {
             return View(new UserRegisterViewModel());
         }
-
+        
 
         [HttpPost]
         public async Task<IActionResult> Index(UserRegisterViewModel p)
         {
 
-            AspUser w = new AspUser()
+            var user = new AspUser
             {
                 Name = p.Name,
                 Surname = p.Surname,
@@ -41,9 +42,11 @@ namespace MyPortfolioProject.Areas.User.Controllers
 
             if (p.Password == p.ConfirmPassword)
             {
-                var result = await _userManager.CreateAsync(w, p.Password);
+                var result = await _userManager.CreateAsync(user, p.Password);
+
                 if (result.Succeeded)
                 {
+                    await _userManager.AddToRoleAsync(user, UserRole.User);
                     return RedirectToAction("Index", "Login");
                 }
                 else
@@ -55,8 +58,5 @@ namespace MyPortfolioProject.Areas.User.Controllers
                 }
             }
             return View(p);
-        }
-
-    }
-}
+        }}}
 //Kaan_1234

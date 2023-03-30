@@ -1,0 +1,23 @@
+﻿@model EntityLayer.Concrete.MessageUser
+
+@{
+    ViewData["Title"] = "MessageDetails";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Mesaj Detayları</h1>
+
+<form class="form-group">
+    <br />
+    @Html.Label("ID")
+    @Html.HiddenFor(x=>x.MessageUserID,new {@class ="form-control"})
+    <br />
+    @Html.Label("Gönderenin Adı")
+    @Html.TextBoxFor(x=>x.SenderName ,new {@class ="form-control"})
+    <br />
+      @Html.Label("Gönderenin Maili")
+    @Html.TextBoxFor(x=>x.Sender ,new {@class ="form-control"})
+    <br />
+    @Html.Label("Mesaj")
+    @Html.TextAreaFor(x=>x.MessageContent,10,3, new {@class ="form-control"})
+</form>
