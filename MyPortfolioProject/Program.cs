@@ -55,6 +55,7 @@ if (!app.Environment.IsDevelopment())
 app.MapControllerRoute(
     name: "MyArea",
     pattern: "{area:exists}/{controller=Default}/{action=Index}/{id?}");
+app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404/");
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

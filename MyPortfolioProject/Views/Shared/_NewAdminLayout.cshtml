@@ -147,6 +147,7 @@
                 <div class="content-wrapper">
                     @RenderBody()
                 </div>
+                @await RenderSectionAsync("Scripts",required:false)
                 <!-- content-wrapper ends -->
                 <!-- partial:../../partials/_footer.html -->
                 <footer class="footer">
